@@ -2,9 +2,9 @@ var mainApp = angular.module("mainApp", ['ngRoute']);
 mainApp.config(['$routeProvider', function($routeProvider) {
    $routeProvider.
    
-   when('/addStudent', {
-      templateUrl: 'addStudent.htm',
-      controller: 'AddStudentController'
+   when('/addColaborador', {
+      templateUrl: 'addColaborador.htm',
+      controller: 'AddColaboradorController'
    }).
    
    when('/viewStudents', {
@@ -13,11 +13,11 @@ mainApp.config(['$routeProvider', function($routeProvider) {
    }).
    
    otherwise({
-      redirectTo: '/addStudent'
+      redirectTo: '/addColaborador'
    });
 }]);
 
-mainApp.controller('AddStudentController', function($scope, $compile,  $http) {
+mainApp.controller('AddColaboradorController', function($scope, $compile,  $http) {
    $scope.message = "This page will be used to display add student form";
 
    $scope.objectColaborador = {
@@ -29,8 +29,7 @@ mainApp.controller('AddStudentController', function($scope, $compile,  $http) {
 
 
    $scope.listaColaboradores = [] ; 
-   //$scope.listaColaboradores.push(criarObjectTesteColaborador1()) ; 
-   //$scope.listaColaboradores.push(criarObjectTesteColaborador2()) ; 
+   
 
    $scope.salvarColaborador = function (){
          console.log('inicio funcao salvarColaborador'); 
@@ -85,27 +84,6 @@ mainApp.controller('AddStudentController', function($scope, $compile,  $http) {
       this.porcentagem = porcentagem ; 
       this.texto = texto ; 
       this.refColaborador = [];
-   }
-
-
-   function criarObjectTesteColaborador1() {
-      object_1 = new ObjectColaborador(1,'Leandro','123','10%','Ruim');
-      object_1.refColaborador = [] ; 
-      object_1.refColaborador.push(new ObjectColaborador(2,'Evandro','456','45%','Mediana')) ;
-      object_1.refColaborador.push(new ObjectColaborador(3,'Paula','574','70%','Mediana')) ;
-      object_1.refColaborador[0].refColaborador = [] ; 
-      object_1.refColaborador[0].refColaborador.push(new ObjectColaborador(4,'Victor','789','60%','Bom')) ;
-      object_1.refColaborador[0].refColaborador.push(new ObjectColaborador(5,'Rafael','943','80%','Otimo')) ;
-      object_1.refColaborador[1].refColaborador = [] ; 
-      return object_1;
-   }
-
-   function criarObjectTesteColaborador2() {
-      object_2 = new ObjectColaborador(6,'Node2','567','30%','Medio');
-      object_2.refColaborador = [] ; 
-      object_2.refColaborador.push (new ObjectColaborador(7,'Node 2.1','212','80%','Otimo')) ;
-      object_2.refColaborador[0].refColaborador = [] ; 
-      return object_2;
    }
 
 
