@@ -31,11 +31,13 @@
                
             <div>
                <ul ng-repeat="colaboradorNiv1 in listaColaboradores">
-                  <li>{{colaboradorNiv1.nomeColaborador}} <input type="button" value="Adicionar" ng-click="adicionar(colaboradorNiv1.id)"></input> </li>
+                  <li>{{colaboradorNiv1.nomeColaborador}} -     
+                     {{colaboradorNiv1.porcentagem}} - {{colaboradorNiv1.texto}} <input type="button" value="Adicionar" ng-click="adicionar(colaboradorNiv1.id)"></input></li>
                   <ul ng-repeat="colaboradorNiv2 in colaboradorNiv1.refColaborador">
-                     <li>{{colaboradorNiv2.nomeColaborador}}  <input type="button" value="Adicionar" ng-click="adicionar(colaboradorNiv2.id)"></input> </li>
+                     <li>{{colaboradorNiv2.nomeColaborador}}  
+                        {{colaboradorNiv2.porcentagem}} - {{colaboradorNiv2.texto}}  <input type="button" value="Adicionar" ng-click="adicionar(colaboradorNiv2.id)"></input> </li>
                      <ul ng-repeat="colaboradorNiv3 in colaboradorNiv2.refColaborador">
-                        <li>{{colaboradorNiv3.nomeColaborador}}</li>
+                        <li>{{colaboradorNiv3.nomeColaborador}} - {{colaboradorNiv3.porcentagem}} - {{colaboradorNiv3.texto}} </li>
                      </ul>
                   </ul>
                </ul>
