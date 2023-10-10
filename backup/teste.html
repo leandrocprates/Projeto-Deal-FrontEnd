@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+   
+   <head>
+      <title>Angular JS Views</title>
+      <script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.5.9/angular.min.js"></script>
+      <script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.5.9/angular-route.min.js"></script>
+      <script src = "main.js"></script>
+      <script src = "addStudent.htm"></script>
+      <script src = "viewStudents.htm"></script>
+   </head>
+   
+   <body>
+      <h2>AngularJS Sample Application</h2>
+      <div ng-app = "mainApp">
+         <p><a href = "#addStudent">Add Student</a></p>
+         <p><a href = "#viewStudents">View Students</a></p>
+         <div ng-view></div>
+         
+         <script type = "text/ng-template" id = "addStudent.htm">
+            
+            <div>
+               Nome:
+               <input type="text" id="namo" name="nome" ng-model="objectColaborador.nomeColaborador"></input>
+               Senha: 
+               <input type="password" id="senha" name="senha" ng-model="objectColaborador.senhaColaborador" ></input>
+               <input type="button" value="Adicionar" ng-click="salvarColaborador()"></input>
+            </div>     
+               
+            <p>
+               
+            <div>
+               <div id="listaColaboradorHtml">
+               </div>
+            </div>      
+
+         </script>
+         
+         <script type = "text/ng-template" id = "viewStudents.htm">
+            <h2> View Students </h2>
+            {{message}}
+         </script>
+         
+      </div>
+      
+   </body>
+</html>

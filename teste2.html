@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+   
+   <head>
+      <title>Angular JS Views</title>
+      <script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.5.9/angular.min.js"></script>
+      <script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.5.9/angular-route.min.js"></script>
+      
+      <script src = "main.js"></script>
+      
+   </head>
+   
+   <body>
+      <h2>AngularJS Sample Application</h2>
+      <div ng-app = "mainApp">
+         <p><a href = "#addStudent">Add Student</a></p>
+         <p><a href = "#viewStudents">View Students</a></p>
+         <div ng-view></div>
+         
+         <script type = "text/ng-template" id = "addStudent.htm">
+            
+            <div>
+               Nome:
+               <input type="text" id="namo" name="nome" ng-model="objectColaborador.nomeColaborador"></input>
+               Senha: 
+               <input type="password" id="senha" name="senha" ng-model="objectColaborador.senhaColaborador" ></input>
+               <input type="button" value="Adicionar" ng-click="salvarColaborador()"></input>
+            </div>     
+               
+            <p>
+               
+            <div>
+               <ul ng-repeat="colaboradorNiv1 in listaColaboradores">
+                  <li>{{colaboradorNiv1.nomeColaborador}} <input type="button" value="Adicionar" ng-click="adicionar(colaboradorNiv1.id)"></input> </li>
+                  <ul ng-repeat="colaboradorNiv2 in colaboradorNiv1.refColaborador">
+                     <li>{{colaboradorNiv2.nomeColaborador}}  <input type="button" value="Adicionar" ng-click="adicionar(colaboradorNiv2.id)"></input> </li>
+                     <ul ng-repeat="colaboradorNiv3 in colaboradorNiv2.refColaborador">
+                        <li>{{colaboradorNiv3.nomeColaborador}}</li>
+                     </ul>
+                  </ul>
+               </ul>
+            </div>      
+
+         </script>
+         
+         <script type = "text/ng-template" id = "viewStudents.htm">
+            <h2> View Students </h2>
+            {{message}}
+         </script>
+         
+      </div>
+      
+   </body>
+</html>
