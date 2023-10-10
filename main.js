@@ -44,7 +44,7 @@ mainApp.controller('AddStudentController', function($scope, $compile,  $http) {
          //chamar servico de salvar e retornar dados 
          console.log(JSON.stringify($scope.listaColaboradores));
 
-         //chamarservicobuscar();
+         
          chamarservicosalvar();
    }
 
@@ -54,6 +54,7 @@ mainApp.controller('AddStudentController', function($scope, $compile,  $http) {
          $http.post('http://localhost:8080/salvarcolaborador', $scope.listaColaboradores)
          .success(function (data){
             console.log('Envio correto');
+            chamarservicobuscar();
          })
          .error(function (data){
             console.log('Erro na busca ');
@@ -74,7 +75,7 @@ mainApp.controller('AddStudentController', function($scope, $compile,  $http) {
               console.log('Erro no Servidor' + data);
       });
 
-   } 
+   }
 
 
    function ObjectColaborador(id , nomeColaborador,senhaColaborador,porcentagem,texto){
@@ -117,6 +118,8 @@ mainApp.controller('AddStudentController', function($scope, $compile,  $http) {
 
       colaboradorEncontrado.refColaborador.push(objectColaboradorNovo);
      
+      chamarservicosalvar();
+
    }
 
    function buscarColaboradorInterno(id){
